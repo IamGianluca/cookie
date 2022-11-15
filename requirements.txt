@@ -1,0 +1,11 @@
+black
+black[jupyter]
+dvc
+flake8
+ipdb
+ipywidgets
+isort
+jupyterlab
+mypy
+pytest
+wandb
