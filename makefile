@@ -1,8 +1,3 @@
-include .env
-
-print:
-	echo ${FNAME}
-
 format:
 	isort . && \
 	black -l 79 .
@@ -15,13 +10,13 @@ test:
 	mypy pipe/ --ignore-missing-imports
 
 build:
-	docker build -t ${IMAGE_NAME} .
+	docker build -t {{ cookiecutter.image_name }} .
 
 start:
-	docker run -d --name ${CONTAINER_NAME} --ipc=host --gpus all -p 5000:5000 -p 8888:8888 --rm -v "/home/gianluca/git/kaggle/spine:/workspace" -v "/data:/data" -t kaggle
+	docker run -d --name {{ cookiecutter.container_name }} --ipc=host --gpus all -p 5000:5000 -p 8888:8888 --rm -v "/home/gianluca/git/kaggle/spine:/workspace" -v "/data:/data" -t kaggle
 
 attach:
-	docker exec -it ${CONTAINER_NAME} /bin/bash
+	docker exec -it {{ cookiecutter.container_name }} /bin/bash
 
 stop:
 	docker kill spine
@@ -42,7 +37,7 @@ upload_ckpts:
 	kaggle datasets version --dir-mode zip -p ckpts/ -m "New version"
 
 submit:
-	kaggle competitions submit -c ${COMPETITION_LONG_NAME} -f ./preds/submission.csv -m "$(MSG)"
+	kaggle competitions submit -c {{ cookiecutter.competition_long_name }} -f ./preds/submission.csv -m "$(MSG)"
 
 jupyter:
 	jupyter lab --ip 0.0.0.0 --no-browser --allow-root
