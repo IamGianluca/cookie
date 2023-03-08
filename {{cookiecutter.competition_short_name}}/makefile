@@ -13,13 +13,13 @@ build:
 	docker build -t {{ cookiecutter.image_name }} .
 
 start:
-	docker run -d --name {{ cookiecutter.container_name }} --ipc=host --gpus all -p 5000:5000 -p 8888:8888 --rm -v "/home/gianluca/git/kaggle/spine:/workspace" -v "/data:/data" -t kaggle
+	docker run -d --name {{ cookiecutter.container_name }} --ipc=host --gpus all -p 5000:5000 -p 8888:8888 --rm -v "/home/gianluca/git/kaggle/{{ cookiecutter.container_name }}:/workspace" -v "/data:/data" -t kaggle
 
 attach:
 	docker exec -it {{ cookiecutter.container_name }} /bin/bash
 
 stop:
-	docker kill spine
+	docker kill {{ cookiecutter.container_name }}
 
 clean:
 	docker system prune -a && \
