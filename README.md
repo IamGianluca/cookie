@@ -1,6 +1,6 @@
 ## Introduction
 
-This repository contains my solution to the ["..."](https://www.kaggle.com/competitions/.../) challenge, hosted in Kaggle.
+This repository contains my solution to the ["{{ cookiecutter.competition_full_name }}"](https://www.kaggle.com/competitions/{{ cookiecutter.competition_long_name }}/) challenge, hosted in Kaggle.
 
 ## Installation
 

@@ -1,0 +1,7 @@
+{
+	"competition_short_name": "",
+	"competition_long_name": "",
+	"competition_full_name": "",
+	"image_name": "kaggle",
+	"container_name": "{{ cookiecutter.competition_short_name }}"
+}
