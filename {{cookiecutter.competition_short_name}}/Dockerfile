@@ -1,10 +1,13 @@
-FROM nvcr.io/nvidia/merlin/merlin-pytorch-training:22.09
+FROM nvcr.io/nvidia/pytorch:23.02-py3
 
 # set environment variables
 ENV LANG=C.UTF-8 LC_ALL=C.UTF-8
+ENV TERM screen-256color
 ENV PYTHONBREAKPOINT=ipdb.set_trace
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
+ENV TOKENIZERS_PARALLELISM=false
+
 ARG DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update && apt-get install ffmpeg libsm6 libxext6 -y
@@ -15,12 +18,33 @@ COPY requirements.txt /workspace/requirements.txt
 
 # install extra python packages
 RUN python -m pip install --upgrade pip
-RUN pip install -r requirements.txt
-RUN jupyter nbextension enable --py widgetsnbextension
-RUN CC="cc -mavx2" pip install --no-cache-dir -U --force-reinstall pillow-simd
+RUN pip install -r /workspace/requirements.txt
+# RUN jupyter nbextension enable --py widgetsnbextension
 
-COPY blazingml /blazingml
-RUN cd /blazingml/src && pip install -e .
+# install personal ml package
+COPY blazingai /workspace/blazingai
+RUN pip install -e /workspace/blazingai
 
-# verify pillow-simd + libjpegturbo installation
+########################################
+## dependencies for dev environment
+## TODO: move to devcontainer
+########################################
+RUN apt-get install -y npm
+RUN curl -fsSL https://deb.nodesource.com/setup_current.x | bash -
+RUN apt-get update
+RUN apt-get install -y nodejs
+
+RUN apt-get install software-properties-common -y
+RUN add-apt-repository ppa:neovim-ppa/unstable
+RUN apt-get update
+RUN apt-get install -y neovim 
+RUN pip install pynvim
+
+RUN apt install zsh -y
+RUN sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
+
+########################################
+########################################
+ 
+# make sure libjpeg-turbo is installed properly
 RUN python -c "from PIL import features; print(features.check_feature('libjpeg_turbo'))"
