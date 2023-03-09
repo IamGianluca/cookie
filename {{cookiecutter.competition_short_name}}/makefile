@@ -41,3 +41,6 @@ submit:
 
 jupyter:
 	jupyter lab --ip 0.0.0.0 --no-browser --allow-root
+
+install_nvim:
+	git clone https://github.com/IamGianluca/dotfiles.git .dotfiles && cd .dotfiles && ./install
