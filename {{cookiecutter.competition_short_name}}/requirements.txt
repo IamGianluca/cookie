@@ -4,8 +4,9 @@ dvc
 flake8
 ipdb
 ipywidgets
-isort
 jupyterlab
+kaggle
 mypy
 pytest
+usort
 wandb
