@@ -7,7 +7,7 @@ This repository contains my solution to the ["{{ cookiecutter.competition_full_n
 First, download the code (and its submodules):
 
 ```
-git clone --recurse-submodules git@github.com:IamGianluca/...
+$ git clone --recurse-submodules git@github.com:IamGianluca/...
 ```
 
 For reproducibility, we included a Docker image we used to develop and test the application. We defined the Machine Learning pipeline in [DVC](https://dvc.org/), a version control system for machine learning projects.
@@ -30,14 +30,14 @@ Reproduce the DVC pipeline.
 
 ## Contribute
 
-Here is a brief description of what each folder contains:
-* `ckpts`: model checkpoints
+He-re is a brief description of what each folder contains:
+* `ckpt`: model checkpoints
 * `data`: input and pre-processed data
+* `mtrc`: metrics
 * `nbs`: notebooks for exploration analyses
-* `outs`: model outputs
 * `pipe`: Python scripts for each step in the DVC pipeline
-* `preds`: predictions
-* `src`: source code for companion library
+* `pred`: predictions
+* `blazingai`: source code for companion library
 
 Other important files are:
 * `dvc.yaml`:  list input, output, and parameters used by each DVC step
