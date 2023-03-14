@@ -43,7 +43,7 @@ Other important files are:
 * `dvc.yaml`:  list input, output, and parameters used by each DVC step
 * `params.yaml`: parameters used for DVC steps
 
-The companion library (`ml`) is installed in editable mode. Which means you don't need to rebuild the Docker container every time you make a change to it.
+The companion library (`blazingai`) is installed in editable mode. Which means you don't need to rebuild the Docker container every time you make a change to it.
 
 #### Commit labels
 
