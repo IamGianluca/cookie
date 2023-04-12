@@ -6,31 +6,39 @@ This repository contains my solution to the ["{{ cookiecutter.competition_full_n
 
 First, download the code (and its submodules):
 
-```
-$ git clone --recurse-submodules git@github.com:IamGianluca/...
+```bash
+git clone --recurse-submodules git@github.com:IamGianluca/...
 ```
 
 For reproducibility, we included a Docker image we used to develop and test the application. We defined the Machine Learning pipeline in [DVC](https://dvc.org/), a version control system for machine learning projects.
 
 You must copy your personal `kaggle.json` file to the project's main directory. This file is used to authenticate to the Kaggle API, and download the competition data from inside the Docker container.
 
-`$ cp ~/.kaggle/kaggle.json .`
+```bash
+cp ~/.kaggle/kaggle.json .
+```
 
 Build the Docker image and start the Docker container.
 
-`$ make build && make start`
+```bash
+make build && make start
+```
 
 Start an interactive bash shell in the container.
 
-`$ make attach` 
+```bash
+make attach
+``` 
 
 Reproduce the DVC pipeline.
 
-`$ dvc repro`
+```bash
+dvc repro
+```
 
 ## Contribute
 
-He-re is a brief description of what each folder contains:
+Here is a brief description of what each folder contains:
 * `ckpt`: model checkpoints
 * `data`: input and pre-processed data
 * `mtrc`: metrics
