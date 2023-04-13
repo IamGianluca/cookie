@@ -2,9 +2,12 @@ format:
 	usort format . && \
 	black .
 
-install:
-	rm -rf blazingml/src/ml.egg-info/ && \
-	pip install -e blazingml/src/
+download_ml:
+	git clone git@github.com:IamGianluca/ml.git blazingai
+
+install_ml:
+	rm -rf blazingai/ml.egg-info/ && \
+	pip install -e blazingai/
 
 test:
 	mypy pipe/ --ignore-missing-imports
@@ -31,7 +34,7 @@ clean:
 	docker volume prune
 
 upload_lib:
-	kaggle datasets version --dir-mode zip -p blazingml/src/ -m "New version"
+	kaggle datasets version --dir-mode zip -p blazingai/ -m "New version"
 
 upload_ckpts:
 	kaggle datasets version --dir-mode zip -p ckpts/ -m "New version"
