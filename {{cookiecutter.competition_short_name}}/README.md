@@ -36,34 +36,38 @@ Reproduce the DVC pipeline.
 dvc repro
 ```
 
-## Contribute
+## Directory Structure
 
 Here is a brief description of what each folder contains:
-* `ckpt`: model checkpoints
-* `data`: input and pre-processed data
-* `mtrc`: metrics
-* `nbs`: notebooks for exploration analyses
+* `ckpt`: Model checkpoints
+* `data`: Input and pre-processed data
+* `mtrc`: Metrics
+* `nbs`: Notebooks for exploration analyses
 * `pipe`: Python scripts for each step in the DVC pipeline
-* `pred`: predictions
-* `blazingai`: source code for companion library
+* `pred`: Predictions
+* `ml`: Source code for companion library `blazingai`
 
 Other important files are:
 * `dvc.yaml`:  list input, output, and parameters used by each DVC step
 * `params.yaml`: parameters used for DVC steps
 
+## Development
+
+If you want to help, please respect this naming convention to tag your commits:
+
+* API relevant changes:
+    * `feat`: Commits that add a new feature
+    * `fix`: Commits that fixes a bug
+* `refactor`: Commits that rewrite/restructure your code but does not change any behavior
+    * `perf`: Special `refactor` commits that improve performance
+* `style`: Commits that do not affect the meaning (white space, formatting, missing semi-colons, etc.)
+* `test`: Commits that add missing tests or correct existing tests
+* `docs`: Commits that affect documentation only
+* `build`: Commits that affect build components like build tool, CI pipeline, dependencies, project version, etc...
+* `ops`: Commits that affect operational components like infrastructure, deployment, backup, recovery, ...
+* `chore`: Miscellaneous commits e.g., modifying `.gitignore`
+
 The companion library (`blazingai`) is installed in editable mode. Which means you don't need to rebuild the Docker container every time you make a change to it.
-
-#### Commit labels
-
-When contributing to this repository, please consider using the following convention to label your commit messages.
-
-* `BUG`: bug fixing
-* `DEV`: development environment ― e.g., Docker, TensorBoard, system dependencies
-* `DOC`: documentation
-* `EDA`: exploratory data analysis
-* `ML`: modeling, feature engineering
-* `MAINT`: maintenance ― e.g., refactoring
-* `OPS`: MLOps ― e.g., download, unzip, pre- and post-process data
 
 ## Tools
 

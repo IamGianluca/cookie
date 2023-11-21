@@ -1,9 +1,8 @@
 format:
-	usort format . && \
-	black .
+	ruff format .
 
 download_ml:
-	git clone git@github.com:IamGianluca/ml.git blazingai
+	git submodule add git@github.com:IamGianluca/ml.git blazingai
 
 install_ml:
 	rm -rf blazingai/ml.egg-info/ && \

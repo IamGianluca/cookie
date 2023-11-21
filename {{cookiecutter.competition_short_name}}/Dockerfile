@@ -21,7 +21,7 @@ RUN python -m pip install --upgrade pip
 RUN pip install -r /workspace/requirements.txt
 # RUN jupyter nbextension enable --py widgetsnbextension
 
-# install personal ml package
+# install personal ml library
 COPY blazingai /workspace/blazingai
 RUN pip install -e /workspace/blazingai
 

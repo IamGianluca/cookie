@@ -3,8 +3,12 @@
 
 ## How to use
 
+0. `pyenv activate cookie`
 1. `cookiecutter git+ssh://git@github.com/IamGianluca/cookie.git`
-2. `make build && make start`
-3. `make attach`
-4. (optional) `make install_nvim`
-5. Start coding
+2. `cp ~/.kaggle/kaggle.json .`
+3. `git init`
+4. `make install_ml`
+5. `make build && make start`
+6. `make attach`
+7. (optional) `make install_nvim`
+8. Start coding
