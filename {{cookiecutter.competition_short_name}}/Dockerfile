@@ -1,4 +1,4 @@
-FROM nvcr.io/nvidia/pytorch:23.02-py3
+FROM nvcr.io/nvidia/pytorch:23.09-py3
 
 # set environment variables
 ENV LANG=C.UTF-8 LC_ALL=C.UTF-8
@@ -25,26 +25,9 @@ RUN pip install -r /workspace/requirements.txt
 COPY blazingai /workspace/blazingai
 RUN pip install -e /workspace/blazingai
 
-########################################
 ## dependencies for dev environment
-## TODO: move to devcontainer
-########################################
-RUN apt-get install -y npm
-RUN curl -fsSL https://deb.nodesource.com/setup_current.x | bash -
-RUN apt-get update
-RUN apt-get install -y nodejs
+RUN pip install ansible
+RUN ansible-pull -U https://github.com/iamgianluca/ansible.git headless.yml
 
-RUN apt-get install software-properties-common -y
-RUN add-apt-repository ppa:neovim-ppa/unstable
-RUN apt-get update
-RUN apt-get install -y neovim 
-RUN pip install pynvim
-
-RUN apt install zsh -y
-RUN sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
-
-########################################
-########################################
- 
 # make sure libjpeg-turbo is installed properly
 RUN python -c "from PIL import features; print(features.check_feature('libjpeg_turbo'))"
