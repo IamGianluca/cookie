@@ -1,5 +1,6 @@
 ## Introduction
 
+Cookiecutter to bootstrap new Kaggle projects. 
 
 ## How to use
 
@@ -7,8 +8,7 @@
 1. `cookiecutter git+ssh://git@github.com/IamGianluca/cookie.git`
 2. `cp ~/.kaggle/kaggle.json .`
 3. `git init`
-4. `make install_ml`
+4. `make download_ml && make install_ml`
 5. `make build && make start`
 6. `make attach`
-7. (optional) `make install_nvim`
-8. Start coding
+7. Start coding
