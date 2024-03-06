@@ -1,5 +1,6 @@
 dvc
 flake8
+git+https://github.com/iamgianluca/fastkaggle
 ipdb
 ipywidgets
 jupyterlab
