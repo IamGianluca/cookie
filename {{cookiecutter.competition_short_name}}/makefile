@@ -18,7 +18,7 @@ start:
 	docker run -d --name {{ cookiecutter.container_name }} --env-file ./.env --ipc=host --gpus all -p 5000:5000 -p 8888:8888 --rm -v "/home/gianluca/git/kaggle/{{ cookiecutter.container_name }}:/workspace" -v "/data:/data" -t kaggle
 
 attach:
-	docker exec -it {{ cookiecutter.container_name }} /bin/bash
+	docker exec -it {{ cookiecutter.container_name }} /bin/zsh
 
 stop:
 	docker kill {{ cookiecutter.container_name }}
