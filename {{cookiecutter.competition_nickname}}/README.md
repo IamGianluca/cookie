@@ -1,13 +1,13 @@
 ## Introduction
 
-This repository contains my solution to the ["{{ cookiecutter.competition_full_name }}"](https://www.kaggle.com/competitions/{{ cookiecutter.competition_long_name }}/) challenge, hosted in Kaggle.
+This repository contains my solution to the ["{{ cookiecutter.competition_name }}"](https://www.kaggle.com/competitions/{{ cookiecutter.competition_slug }}/) challenge, hosted in Kaggle.
 
 ## Installation
 
 First, download the code (and its submodules):
 
 ```bash
-git clone --recurse-submodules git@github.com:IamGianluca/...
+git clone --recurse-submodules git@github.com:IamGianluca/{{ cookiecutter.competition_nickname }}
 ```
 
 For reproducibility, we included a Docker image we used to develop and test the application. We defined the Machine Learning pipeline in [DVC](https://dvc.org/), a version control system for machine learning projects.

@@ -39,7 +39,7 @@ upload_ckpts:
 	kaggle datasets version --dir-mode zip -p ckpts/ -m "New version"
 
 submit:
-	kaggle competitions submit -c {{ cookiecutter.competition_long_name }} -f ./preds/submission.csv -m "$(MSG)"
+	kaggle competitions submit -c {{ cookiecutter.competition_slug }} -f ./preds/submission.csv -m "$(MSG)"
 
 jupyter:
 	jupyter lab --ip 0.0.0.0 --no-browser --allow-root

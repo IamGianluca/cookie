@@ -1,7 +1,7 @@
 {
-	"competition_short_name": "",
-	"competition_long_name": "",
-	"competition_full_name": "",
+	"competition_nickname": "",
+	"competition_slug": "",
+	"competition_name": "",
 	"image_name": "kaggle",
-	"container_name": "{{ cookiecutter.competition_short_name }}"
+	"container_name": "{{ cookiecutter.competition_nickname }}"
 }
